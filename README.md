@@ -1,2 +1,4 @@
 ﻿# TrabalhoAlgebra
 bglh doido
+
+não
