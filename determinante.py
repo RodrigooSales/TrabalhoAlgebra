@@ -9,8 +9,8 @@ def det2(matriz):
 def det3(matriz):
     det = matriz[0][0] * matriz[1][1] * matriz[2][2] + matriz[0][1] * matriz[1][2] * matriz[2][0] + \
           matriz[0][2] * matriz[1][0] * matriz[2][1] - (matriz[0][2] * matriz[1][1] * matriz[2][0] + \
-                                                        matriz[0][0] * matriz[1][2] * matriz[2][1] + matriz[0][1] *
-                                                        matriz[1][0] * matriz[2][2])
+          matriz[0][0] * matriz[1][2] * matriz[2][1] + matriz[0][1] *
+          matriz[1][0] * matriz[2][2])
     return det
 
 
@@ -39,15 +39,19 @@ def del_linha(matriz, linha):
 def del_coluna(matriz, coluna):
     return np.delete(matriz, (coluna), axis=1)
 
+##if det == 0:
+   ##print("A matriz não pode ser invertida")
 
 def inversa2(matriz):
     aux = matriz[0][0]
-    ##descobrir onde que a divisão tá errada
+    ##return [[m[1][1]/determinant, -1*m[0][1]/determinant],
+    ## [-1*m[1][0]/determinant, m[0][0]/determinant]]
+    ## analisar esse código q eu acabei de encontrar, parece mais clean(https://stackoverflow.com/questions/68304934/python-creating-inverse-matrix-without-numpy)
     matriz[0][0] = matriz[1][1] / "determinante"
     matriz[1][1] = aux / "determinante"
     matriz[0][1] = -(matriz[0][1] / "determinante")
     matriz[1][0] = -(matriz[1][0] / "determinante")
-    ##formar a matriz dnv
+    return matriz
 
 
 def inversa3(matriz):
@@ -61,5 +65,11 @@ def inversa3(matriz):
     nova_matriz[2][0] = (det2(matriz[[1][0], [1][1], [2][1], [2][0]]) / det3(matriz))
     nova_matriz[2][1] = -(det2(matriz[[2][0], [2][1], [0][0], [0][1]]) / det3(matriz))
     nova_matriz[2][2] = (det2(matriz[[0][0], [0][1], [1][1], [1][1]]) / det3(matriz))
+    ##se essa porra funcionar eu fico em choque
+    ##n sei chamar essa matriz de volta
     return nova_matriz
+def inversa4(matriz):
 
+## talvez isso seja a resposta para todos os nossos problemas (https://www.codegrepper.com/code-examples/python/matrix+inverse+python+without+numpy)
+def m_base2(matriz):
+    ##bebeto me ensinou a fzr, mas eu n faço ideia pq envolve resolver sistema de equações
