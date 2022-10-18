@@ -6,7 +6,7 @@ def mudancaBase(A, B, n):
     valida = base(A, B, n)
     if valida == True:
         if n == 2:
-            a = [[B[0][0]], B[1][0], [B[0][1], B[1][1]]]
+            a = [[B[0][0], B[1][0]], [B[0][1], B[1][1]]]
             b = A[0]
 
             sistema_linear = np.linalg.solve(a, b)
